@@ -1,3 +1,15 @@
+// เพิ่มข้อมูลการแข่งขันโดยใช้ข้อมูลจากฟอร์ม
+document.getElementById("match-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // ไม่ให้ฟอร์มส่งข้อมูล
+
+    var team = document.getElementById("team").value;
+    var venue = document.getElementById("venue").value;
+    var score = document.getElementById("score").value;
+
+    addMatch(team, venue, score); // เพิ่มข้อมูลลงในตาราง
+    document.getElementById("match-form").reset(); // เคลียร์ค่าฟอร์ม
+});
+
 // เพิ่มข้อมูลการแข่งขันลงในตาราง
 function addMatch(team, venue, score) {
     var table = document.getElementById("match-table");
@@ -9,7 +21,3 @@ function addMatch(team, venue, score) {
     venueCell.innerHTML = venue;
     scoreCell.innerHTML = score;
 }
-
-// เพิ่มข้อมูลการแข่งขันลงในตาราง (ตัวอย่าง)
-addMatch("เวลส", "สนามกีฬา", "0-0");
-addMatch("สถานที่", "สนามกีฬา", "0-0");
